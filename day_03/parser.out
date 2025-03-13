@@ -1,0 +1,117 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> PRINT STRING
+Rule 2     statement -> ADD NUMBER NUMBER
+Rule 3     statement -> SET IDENTIFIER NUMBER
+Rule 4     statement -> GET IDENTIFIER
+
+Terminals, with rules where they appear
+
+ADD                  : 2
+GET                  : 4
+IDENTIFIER           : 3 4
+NUMBER               : 2 2 3
+PRINT                : 1
+SET                  : 3
+STRING               : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+statement            : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . PRINT STRING
+    (2) statement -> . ADD NUMBER NUMBER
+    (3) statement -> . SET IDENTIFIER NUMBER
+    (4) statement -> . GET IDENTIFIER
+
+    PRINT           shift and go to state 2
+    ADD             shift and go to state 3
+    SET             shift and go to state 4
+    GET             shift and go to state 5
+
+    statement                      shift and go to state 1
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> PRINT . STRING
+
+    STRING          shift and go to state 6
+
+
+state 3
+
+    (2) statement -> ADD . NUMBER NUMBER
+
+    NUMBER          shift and go to state 7
+
+
+state 4
+
+    (3) statement -> SET . IDENTIFIER NUMBER
+
+    IDENTIFIER      shift and go to state 8
+
+
+state 5
+
+    (4) statement -> GET . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 9
+
+
+state 6
+
+    (1) statement -> PRINT STRING .
+
+    $end            reduce using rule 1 (statement -> PRINT STRING .)
+
+
+state 7
+
+    (2) statement -> ADD NUMBER . NUMBER
+
+    NUMBER          shift and go to state 10
+
+
+state 8
+
+    (3) statement -> SET IDENTIFIER . NUMBER
+
+    NUMBER          shift and go to state 11
+
+
+state 9
+
+    (4) statement -> GET IDENTIFIER .
+
+    $end            reduce using rule 4 (statement -> GET IDENTIFIER .)
+
+
+state 10
+
+    (2) statement -> ADD NUMBER NUMBER .
+
+    $end            reduce using rule 2 (statement -> ADD NUMBER NUMBER .)
+
+
+state 11
+
+    (3) statement -> SET IDENTIFIER NUMBER .
+
+    $end            reduce using rule 3 (statement -> SET IDENTIFIER NUMBER .)
+
