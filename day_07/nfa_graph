@@ -1,0 +1,13 @@
+// NFA Graph
+digraph {
+	rankdir=LR
+	q0
+	q1
+	q2 [shape=doublecircle]
+	q3 [shape=doublecircle]
+	q0 [fillcolor=lightblue shape=circle style=filled]
+	q0 -> q1 [label=i]
+	q1 -> q2 [label=f]
+	q1 -> q3 [label="a-z"]
+	q3 -> q3 [label="a-z"]
+}
