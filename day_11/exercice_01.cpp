@@ -1,7 +1,7 @@
 #include <iostream>
 
 // To test, define DEBUG (or pass -DDEBUG to compiler)
-// #define DEBUG
+//#define DEBUG
 
 int main() {
     std::cout << "Program started." << std::endl;
